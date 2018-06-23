@@ -1,0 +1,20 @@
+p.texto{
+	text-align: justify;
+	font-family: "Times new roman"; 
+}
+
+.esquerda{
+	float: left; 
+}
+
+.direita{
+	float: right;
+}
+
+.texto-rodape{
+	margin-bottom: auto;
+}
+
+.direita-footer{
+	margin-right: auto;
+}

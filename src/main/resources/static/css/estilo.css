@@ -1,0 +1,141 @@
+body{
+	font-family: 'Roboto',sans-serif;
+}
+
+.linha{  
+	width: 970px;
+	margin: 0 auto;
+	overflow: auto;
+}
+
+a:link,a:active,a:visited{
+	color: #315e8a;
+	text-decoration: none;
+}
+
+a:hover{
+	text-decoration: underline;
+}
+
+a.nounderline:link{
+	text-decoration: none;
+}
+
+
+h1{
+	font-weight: 300;
+	margin: 15px 0px 10px 0;
+	color: #315e8a;
+	letter-spacing: -2px;
+}
+
+h2,h3{
+	margin: 15px 0px  10px 0;
+	font-weight: 500;
+	text-align: center;
+	padding-top: 10px;
+}
+
+.menu{
+	text-transform:uppercase; 
+}
+
+.menu li a{
+	padding: 5px 10px;
+	border-radius: 3px;
+}
+
+.menu li a:hover{
+	text-decoration: none;
+	background: #191970;
+	color: #ebebeb;
+}
+
+section#csl{
+	margin-top:40px;
+	margin-bottom:35px; 
+	width:960px;
+}
+
+.conteudo-extra{
+	background: #f1f2ea;
+	margin-left:-8px;
+	margin-right:-8px;
+	padding-bottom: 50px;
+}
+
+section{
+	display: block;
+	width: 500px;
+	float: left;
+}
+
+aside{
+	display: block;
+	width: 400px;
+	float: right;
+}
+
+section p{
+	text-align: justify;
+	text-indent: 20px;
+}
+
+aside p{
+	text-align: justify;
+	text-indent: 20px;
+}
+
+float-right{
+	float: right;
+}
+
+float-left{
+	float: left;
+}
+
+
+
+tr img{
+	width: 300px;
+	height: 200px;
+}
+
+#procurar{
+	width: 100%;
+	margin-left: -10px;
+}
+
+#btncriar{
+	margin-left: 5%;
+}
+
+#main-content{
+	margin-top: 10%;
+	margin-left: 15%;
+}
+
+#login-form{
+	position:absolute;
+	left: 50%;
+	top: 30%;
+	margin-left:-120px;
+   	margin-top:-45px;
+}
+#text-login-form{
+	position:absolute;
+	left: 40%;
+	top: 20%;
+	margin-left:-120px;
+   	margin-top:-45px;
+}
+
+#ADM-text{
+	position: absolute;
+	margin-left: 18%;
+	margin-top: 2%;
+}
+
+#sair{
+	color: #FFD;
+}
