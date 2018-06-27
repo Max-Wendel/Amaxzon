@@ -22,4 +22,12 @@ public class Carrinho {
     public void setTotalCompra(BigDecimal totalCompra) {
         this.totalCompra = totalCompra;
     }
+
+    public boolean estaVazio(){
+        if (getProdutosNoCarrinho().size() > 0) {
+            return false;
+        }else{
+            return true;
+        }
+    }
 }

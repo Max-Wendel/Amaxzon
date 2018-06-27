@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="/layout/default :: head"></head>
+<body>
+    <header th:replace="/layout/default :: header-cliente"></header>
+
+    <section>
+        <div class="container">
+            <div>
+                <h1 th:if="${Carrinho.totalCompra  == 0}"> O Carrinho está vazio :(</h1>
+                <h1 th:unless="${Carrinho.totalCompra == 0}" th:text="${Carrinho.getTotalCompra()}" ></h1>
+            </div>
+
+            <div>
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th scope="col">Nome</th>
+                        <th scope="col">Preço</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="produto : ${Carrinho.getProdutosNoCarrinho()}">
+                        <td th:text="${produto.nome}"></td>
+                        <td th:text="${produto.preco}"></td>
+                        <td> <a class="btn btn-danger" th:href="@{/carrinho/remover/{id}(id = ${produto.id})}"> Excluir </a> </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <footer th:replace="/layout/default :: footer"></footer>
+    <script th:replace="layout/default :: scripts"></script>
+
+</body>
+</html>

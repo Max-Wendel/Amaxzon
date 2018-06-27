@@ -24,13 +24,12 @@ public class CarrinhoController {
     @RequestMapping("/listar")
     public ModelAndView listarProdutosNoCarrinho() {
         ModelAndView mv = new ModelAndView("carrinho");
-        mv.addObject("produtosNoCarrinho", this.carrinho.getProdutosNoCarrinho());
-        mv.addObject("totalCompra", this.carrinho.getTotalCompra());
+        mv.addObject("Carrinho", this.carrinho);
         return mv;
     }
 
     //Operações com o preço são feitas convertendo a string do pruduto para BigDecimal
-    @GetMapping("/adicionar/{id}")
+    @RequestMapping("/adicionar/{id}")
     public ModelAndView adicionarNoCarrinho(@PathVariable Long id) {
         //Atualizar Carrinho
         Produto produto = prodService.buscarPorId(id);
@@ -53,6 +52,6 @@ public class CarrinhoController {
                 }
             }
         }
-        return new ModelAndView("carrinho");
+        return new ModelAndView("redirect:/carrinho/listar");
     }
 }
