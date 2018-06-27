@@ -1,6 +1,6 @@
 package br.com.amaxzon.controller;
 
-import br.com.amaxzon.model.Carrinho;
+import br.com.amaxzon.component.Carrinho;
 import br.com.amaxzon.model.Produto;
 import br.com.amaxzon.service.ProdutoService;
 import org.springframework.beans.factory.annotation.Autowired;

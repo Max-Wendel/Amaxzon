@@ -1,5 +1,6 @@
-package br.com.amaxzon.model;
+package br.com.amaxzon.component;
 
+import br.com.amaxzon.model.Produto;
 import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
