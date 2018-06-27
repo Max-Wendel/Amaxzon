@@ -19,26 +19,26 @@ public class UsuarioController {
     @Autowired
     private UsuarioService usuarioService;
 
-    @PostMapping("/cadastrarUsuario")
+    @RequestMapping("/cadastrar")
     public ModelAndView cadastrarUsuario(Usuario usuario){
         ModelAndView mv = new ModelAndView("cadastro");
         mv.addObject("usuario",new Usuario());
         return mv;
     }
 
-    @RequestMapping("/salvarUsuario")
+    @RequestMapping("/salvar")
     public ModelAndView salvarUsuario(Usuario usuario){
         usuarioService.adicionarUsuario(usuario);
-        return new ModelAndView("redirect:/listarUsuarios");
+        return new ModelAndView("redirect:/home");
     }
 
-    @RequestMapping("/excluirUsuario/{id}")
+    @RequestMapping("/excluir/{id}")
     public ModelAndView excluirUsuario(@PathVariable Long id){
         usuarioService.removerUsuario(id);
-        return new ModelAndView("redirect:/listarUsuarios");
+        return new ModelAndView("redirect:/listar");
     }
 
-    @GetMapping("/listarUsuarios")
+    @GetMapping("/listar")
     public ModelAndView listarUsuarios(){
         List<Usuario> usuarios = usuarioService.listarUsuarios();
         ModelAndView mv = new ModelAndView("gerenciar-usuarios");

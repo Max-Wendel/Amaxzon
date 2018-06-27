@@ -1,37 +1,32 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title>login</title>
-</head>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
 
-<head th:include="head"></head>
+<head th:replace="/layout/default :: head"></head>
 
 <body>
 
-    <div>
-        <div>
-            <div>
-                <img src="../img/WEB-PAGE/amaxzon.png" width="250px" height="250px" alt="Logo Empresa">
-            </div>
-            <div>
-                <h3>Logue para continuar</h3>
-            </div>
-        </div>
-        <div>
+    <header th:replace="/layout/default :: header-visitante"></header>
+
+    <div class="container">
+        <img th:src="@{/img/WEB-PAGE/logo.svg}" class="img-login-form" alt="Logo Empresa">
+        <div id="login-form" class="row">
             <form>
                 <div class="form-group">
-                    <label for="exampleInputEmail1">Login</label>
-                    <input type="text" class="form-control" id="login" aria-describedby="emailHelp" placeholder="Insira seu login">
+                    <label>Login</label>
+                    <input type="text" class="form-control" id="login" placeholder="Insira seu login">
                 </div>
                 <div class="form-group">
-                    <label for="exampleInputPassword1">Senha</label>
+                    <label>Senha</label>
                     <input type="password" class="form-control" id="password" placeholder="Insira sua senha">
                 </div>
-                <a type="submit" class="btn btn-primary"></a>
+                <a type="submit" class="btn btn-primary">Logar</a> ,ou <a href="/usuario/cadastrar">Cadastre-se</a>
             </form>
         </div>
     </div>
+
+    <footer th:replace="/layout/default :: footer"></footer>
+    <script th:replace="/layout/default :: scripts"></script>
 
 </body>
 </html>
