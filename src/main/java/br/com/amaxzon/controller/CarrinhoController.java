@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.math.BigDecimal;
+
 @Controller
 @RequestMapping("/carrinho")
 public class CarrinhoController {
@@ -27,10 +29,17 @@ public class CarrinhoController {
         return mv;
     }
 
+    //Operações com o preço são feitas convertendo a string do pruduto para BigDecimal
     @GetMapping("/adicionar/{id}")
     public ModelAndView adicionarNoCarrinho(@PathVariable Long id) {
-        this.carrinho.getProdutosNoCarrinho().add(prodService.buscarPorId(id));
-        this.carrinho.setTotalCompra(this.carrinho.getTotalCompra().add(prodService.buscarPorId(id).getPreco()));
+        //Atualizar Carrinho
+        Produto produto = prodService.buscarPorId(id);
+        this.carrinho.getProdutosNoCarrinho().add(produto);
+
+        //Atualizar o preço total
+        BigDecimal prodPreco = new BigDecimal(produto.getPreco());
+        this.carrinho.setTotalCompra(this.carrinho.getTotalCompra().add(prodPreco));
+
         return new ModelAndView("redirect:/produtos/loja");
     }
 
@@ -40,7 +49,7 @@ public class CarrinhoController {
         for(Produto pd : this.carrinho.getProdutosNoCarrinho()) {
             if(pd.getId().equals(p.getId())) {
                 if(this.carrinho.getProdutosNoCarrinho().remove(this.carrinho.getProdutosNoCarrinho().indexOf(pd)) != null) {
-                    this.carrinho.setTotalCompra(this.carrinho.getTotalCompra().subtract(p.getPreco()));
+                    this.carrinho.setTotalCompra(this.carrinho.getTotalCompra().subtract(new BigDecimal(p.getPreco())));
                 }
             }
         }

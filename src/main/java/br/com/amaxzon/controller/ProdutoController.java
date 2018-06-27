@@ -26,24 +26,25 @@ public class ProdutoController {
     }
 
     /*Esse método faz a mesma coisa que o de cima, mas ele vai ser utilizado a fins de CRUD, o contrário do outro*/
-    @GetMapping("/listar")
+    @RequestMapping("/gerenciar")
     public ModelAndView listarProdutos(){
         List<Produto> produtos = produtoService.listarProdutos();
-        ModelAndView mv = new ModelAndView("produtos-loja");
+        ModelAndView mv = new ModelAndView("gerenciar-produtos");
         mv.addObject("todosOsProdutos", produtos);
+        mv.addObject("novoProduto", new Produto());
         return mv;
     }
 
     @PostMapping("/salvar")
     public ModelAndView salvarProduto(Produto produto, @RequestParam(value = "imagem")MultipartFile imagem){
         produtoService.adicionarProduto(produto,imagem);
-        return new ModelAndView("redirect:gerenciar-produtos");
+        return new ModelAndView("redirect:/produto/gerenciar");
     }
 
     @RequestMapping("{id}")
     public ModelAndView atualizarProduto(@PathVariable Long id){
         Produto produto = produtoService.buscarPorId(id);
-        ModelAndView mv = new ModelAndView("redirect:gerenciar-produtos");
+        ModelAndView mv = new ModelAndView("redirect:/produto/gerenciar");
         mv.addObject("produto",produto);
         return mv;
     }
@@ -51,7 +52,7 @@ public class ProdutoController {
     @RequestMapping("/excluir/{id}")
     public ModelAndView excluirProduto(@PathVariable Long id) {
         produtoService.removerProduto(id);
-        return new ModelAndView("redirect:/produto/listar");
+        return new ModelAndView("redirect:/produto/gerenciar");
     }
 
 }

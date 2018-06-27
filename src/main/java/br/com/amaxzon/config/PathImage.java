@@ -9,7 +9,7 @@ public class PathImage implements WebMvcConfigurer {
 
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/img/produtos/**").addResourceLocations("file:img/produtos/");
+        registry.addResourceHandler("/img/produtos/**").addResourceLocations("file:/img/produtos/");
     }
 
 }

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html  xmlns="http://www.w3.org/1999/xhtml"
+       xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="/layout/default :: head"></head>
+<body>
+    <header th:replace="/layout/default :: header-gerente"></header>
+
+    <section>
+        <!--modal cadastro script-->
+        <div id="modal-form" class="modal fade">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Cadastrar Produto</h5>
+                        <button id="botãoClose" type="button" class="close"
+                                data-dismiss="modal" aria-label="Fechar">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+
+                    </div>
+                    <div class="modal-body">
+                        <form method="POST" action="/produto/salvar"
+                              enctype="multipart/form-data" th:object="${novoProduto}">
+                            <input type="hidden" th:field="*{id}" />
+                            <div class="form-gruop">
+                                <label>Nome do Produto</label> <input type="text" th:field="*{nome}" class="form-control" />
+                            </div>
+
+                            <div class="form-gruop">
+                                <label>Preço Produto</label> <input type="text" th:field="*{preco}" class="form-control" />
+                            </div>
+
+                            <div class="form-gruop">
+                                <label for="imagem">Imagem do Produto</label> <input type="file" name="imagem" id="imagem" />
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-danger"
+                                        data-dismiss="modal">Cancelar</button>
+                                <button type="submit" class="btn btn-primary">Cadastrar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container ">
+            <div>
+                <div>
+                    <button type="button" class="btn btn-primary" data-toggle="modal"
+                            data-target="#modal-form">Cadastrar novo Produto</button>
+                </div>
+            </div>
+            <div>
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th scope="col">Imagem</th>
+                        <th scope="col">Nome</th>
+                        <th scope="col">Preço</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="produto: ${todosOsProdutos}">
+                        <td><img th:src="@{ 'img/produtos/' + ${produto.nome} + .png}" /></td>
+                        <td th:text="${produto.nome}"></td>
+                        <td th:text="${produto.preco}"></td>
+                        <td> <a class="btn btn-danger" th:href="@{/produto/excluir/{id}(id = ${produto.id})}"> Excluir </a> </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+
+    <script th:replace="/layout/default :: scripts"></script>
+</body>
+</html>

@@ -4,7 +4,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import java.math.BigDecimal;
 import java.util.Objects;
 
 @Entity
@@ -15,8 +14,8 @@ public class Produto {
     private Long id;
 
     private String nome;
-    private BigDecimal preco;
-    private String path;        //caminho da imagem
+
+    private String preco;
 
     public Long getId() {
         return id;
@@ -34,20 +33,12 @@ public class Produto {
         this.nome = nome;
     }
 
-    public BigDecimal getPreco() {
+    public String getPreco() {
         return preco;
     }
 
-    public void setPreco(BigDecimal preco) {
+    public void setPreco(String preco) {
         this.preco = preco;
-    }
-
-    public String getPath() {
-        return path;
-    }
-
-    public void setPath(String path) {
-        this.path = path;
     }
 
     @Override
@@ -57,12 +48,11 @@ public class Produto {
         Produto produto = (Produto) o;
         return Objects.equals(id, produto.id) &&
                 Objects.equals(nome, produto.nome) &&
-                Objects.equals(preco, produto.preco) &&
-                Objects.equals(path, produto.path);
+                Objects.equals(preco, produto.preco);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, nome, preco, path);
+        return Objects.hash(id, nome, preco);
     }
 }
