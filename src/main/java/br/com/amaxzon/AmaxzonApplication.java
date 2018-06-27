@@ -1,4 +1,4 @@
-package br.com.amaxzon.main;
+package br.com.amaxzon;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
