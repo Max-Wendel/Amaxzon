@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="/layout/default :: head"></head>
+<body>
+    <header th:replace="/layout/default :: header-cliente"></header>
+
+    <section>
+        <div class="row">
+            <div th:each="produto: ${todosOsProdutos}" class="col-md-4">
+                <div class="card mb-4 img-thumbnail" style="width: 18rem;">
+                    <img class="card-img-top" th:src="@{'/img/produtos/'+ ${produto.nome} + '.png'}" >
+
+                    <div class="card-body">
+                        <h4 class="card-title" th:text="${produto.nome}"></h4>
+                        <h5 class="card-text" th:text="${produto.preco}"></h5>
+                        <a th:href="@{/carrinho/adicionar/{id}(id = ${produto.id})}" class="btn btn-primary">Comprar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <footer th:replace="/layout/default :: footer"></footer>
+    <script th:replace="/layout/default :: scripts"></script>
+
+</body>
+</html>
