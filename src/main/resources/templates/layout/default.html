@@ -1,28 +1,31 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
 <head th:fragment="head">
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet" href="/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" href="/css/font-style.css">
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="stylesheet" th:href="@{/css/font-style.css}">
+    <link rel="shortcut icon" th:href="@{img/WEB-PAGE/amaxzon.ico}"/>
 </head>
 <body>
 
     <header th:fragment="header-visitante">
 
-        <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #08112e">
-            <a class="navbar-brand" href="/inicio"><img src="../img/WEB-PAGE/logo.svg" alt="amaxzon logo"></a>
+        <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #fff">
+            <a class="navbar-brand" href="/home"><img th:src="@{/img/WEB-PAGE/logo.svg}" class="logo" alt="amaxzon logo"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarVis">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="/inicio">Home <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="/home">Home <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/produtos">Produtos</a>
+                        <a class="nav-link" href="/">Produtos</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/login">Entre ou Cadastre-se</a>
@@ -36,7 +39,7 @@
     <header th:fragment="header-cliente">
 
         <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #08112e">
-            <a class="navbar-brand" href="/inicio"><img src="../img/WEB-PAGE/logo.svg" alt="amaxzon logo"></a>
+            <a class="navbar-brand" href="/home"><img th:src="@{img/WEB-PAGE/logo.svg}" class="logo" alt="amaxzon logo"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -46,13 +49,13 @@
                         <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/produtos">Produtos</a>
+                        <a class="nav-link" href="/">Produtos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/compras">Suas compras</a>
+                        <a class="nav-link" href="/">Suas compras</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link disabled" href="/carrinho">Carrinho</a>
+                        <a class="nav-link disabled" href="/">Carrinho</a>
                     </li>
                 </ul>
             </div>
@@ -63,17 +66,17 @@
     <header th:fragment="header-gerente">
 
         <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #08112e">
-            <a class="navbar-brand" href="/inicio"><img th:src="../img/WEB-PAGE/logo.svg" alt="amaxzon logo"></a>
+            <a class="navbar-brand" href="/home"><img th:src="@{img/WEB-PAGE/logo.svg}" class="logo" alt="amaxzon logo"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarGer">
                 <ul class="navbar-nav">
                     <li class="nav-item active">
-                        <a class="nav-link" href="/inicio">Home <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="/home">Home <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/produto/listarProduto">Produtos</a>
+                        <a class="nav-link" href="/">Produtos</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/usuario/listarUsuarios">Clientes</a>
@@ -85,7 +88,7 @@
     </header>
 
     <footer th:fragment="footer">
-        <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #08112e">
+        <nav class="navbar navbar-expand-lg navbar-light fixed-bottom">
             <div class="container">
                 <ul class="navbar-nav">
                     <li class="nav-item"><a class="nav-link" href="">&copy;Jhimy-J Solutions</a></li>
@@ -100,9 +103,9 @@
 
     <div th:fragment="scripts">
         <!-- External Scripts -->
-        <script src="/js/jquery.js"></script>
-        <script src="/js/bootstrap.min.js"></script>
-        <script src="/js/show-modal.js"></script>
+        <script th:src="@{/js/jquery.js}"></script>
+        <script th:src="@{/js/bootstrap.min.js}"></script>
+        <script th:src="@{/js/show-modal.js}"></script>
     </div>
 
 </body>

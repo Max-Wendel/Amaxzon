@@ -11,10 +11,16 @@ p.texto{
 	float: right;
 }
 
-.texto-rodape{
-	margin-bottom: auto;
-}
 
 .direita-footer{
 	margin-right: auto;
+}
+
+.logo{
+    width: 100px;
+    height: 50px;
+}
+
+.color-text {
+    color: white;
 }
