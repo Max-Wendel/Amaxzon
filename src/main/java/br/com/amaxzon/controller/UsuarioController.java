@@ -20,7 +20,7 @@ public class UsuarioController {
     private UsuarioService usuarioService;
 
     @PostMapping("/cadastrarUsuario")
-    public ModelAndView cadastrarUsuario(){
+    public ModelAndView cadastrarUsuario(Usuario usuario){
         ModelAndView mv = new ModelAndView("cadastro");
         mv.addObject("usuario",new Usuario());
         return mv;
