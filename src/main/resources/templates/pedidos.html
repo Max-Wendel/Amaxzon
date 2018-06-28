@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layout/default :: head"></head>
+<body>
+    <header th:replace="/layout/default :: header-cliente"></header>
+
+    <div>
+        <table class="table table-striped table-hover">
+            <thead>
+            <tr>
+                <th>Order ID</th>
+                <th>Usuario</th>
+                <th>Produtos</th>
+                <th>Total</th>
+            </tr>
+            </thead>
+            <tbody>
+
+            <tr th:each="order : ${pedidos}">
+                <td th:text="${order.orderId}"></td>
+                <td th:text="${order.usuario.nome}"></td>
+                <td>
+                    <table>
+                        <tr th:each="product :${order.produto}">
+                            <td th:text="${product.nome}"></td>
+                        </tr>
+                    </table>
+                </td>
+                <td th:text="${order.total}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <footer th:replace="/layout/default :: footer"></footer>
+    <script th:replace="/layout/default :: script"></script>
+</body>
+</html>

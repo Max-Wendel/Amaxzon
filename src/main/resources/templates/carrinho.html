@@ -8,10 +8,8 @@
 
     <section>
         <div class="container">
-            <div>
-                <h1 th:if="${Carrinho.totalCompra  == 0}"> O Carrinho está vazio :(</h1>
-                <h1 th:unless="${Carrinho.totalCompra == 0}" th:text="${Carrinho.getTotalCompra()}" ></h1>
-            </div>
+
+            <h3 th:text="${'Total  - R$' + total }"></h3>
 
             <div>
                 <table class="table">
@@ -22,7 +20,7 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr th:each="produto : ${Carrinho.getProdutosNoCarrinho()}">
+                    <tr th:each="produto : ${produtos}">
                         <td th:text="${produto.nome}"></td>
                         <td th:text="${produto.preco}"></td>
                         <td> <a class="btn btn-danger" th:href="@{/carrinho/remover/{id}(id = ${produto.id})}"> Excluir </a> </td>
