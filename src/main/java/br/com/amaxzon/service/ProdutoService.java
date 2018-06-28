@@ -16,7 +16,7 @@ public class ProdutoService {
     ProdutoRepository produtoRepository;
 
     public void adicionarProduto(Produto produto, MultipartFile imagem) {
-        String caminho = "src/main/resources/static/img/produtos/" + produto.getNome() + ".png";
+        String caminho = "src/main/resources/static/images/produto/" + produto.getNome() + ".png";
         AmaxzonFileUtil.salvarImagem(caminho,imagem);
         System.out.println(caminho);
 

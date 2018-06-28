@@ -5,7 +5,7 @@
 <head th:replace="/layout/default :: head"></head>
 <body>
     <header th:replace="/layout/default :: header-gerente"></header>
-
+    <!--<img th:src="@{/images/produto/teste.png}" />-->
     <section>
         <!--modal cadastro script-->
         <div id="modal-form" class="modal fade">
@@ -63,7 +63,9 @@
                     </thead>
                     <tbody>
                     <tr th:each="produto: ${todosOsProdutos}">
-                        <td><img th:src="@{ 'img/produtos/' + ${produto.nome} + .png}" /></td>
+                        <td><img th:src="@{'/images/produto/'+${produto.nome}+'.png'}" />
+
+                        </td>
                         <td th:text="${produto.nome}"></td>
                         <td th:text="${produto.preco}"></td>
                         <td> <a class="btn btn-danger" th:href="@{/produto/excluir/{id}(id = ${produto.id})}"> Excluir </a> </td>

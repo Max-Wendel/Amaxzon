@@ -129,10 +129,15 @@ tr img{
 }
 
 footer{
-	position: relative;
+	position: fixed;
 	margin-top: 5%;
 }
 
 #sair{
 	color: #FFD;
+}
+
+#img-card{
+	width: 250px;
+	height: 360px;
 }
